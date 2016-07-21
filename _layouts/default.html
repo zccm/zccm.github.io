@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+
+  {% include head.html %}
+
+  <body>
+
+    {% include header.html %}
+    <div class="container-main">
+		<div class="row">
+			<div class="col-sm-9">  {{ content }} </div>
+			<div class="col-sm-3" style="text-align: center; padding-left: 2%; padding-right: 2%">
+				<div class="panel panel-success">
+					<div class="panel-heading">播放器</div>
+					<div class="panel-body">
+                        <audio src="$!{base}/MP3/sjnsnrn.mp3" controls="controls" style="max-width:250px"></audio>
+					</div>
+				</div>
+				<div class="panel panel-success">
+					<div class="panel-heading">日历</div>
+					<div class="panel-body">
+						<input id="calendar" />
+					</div>
+				</div>
+				<div class="panel panel-success">
+					<div class="panel-heading">文章分类</div>
+					<ul class="list-group" style="text-align: left">
+            {% for category in site.categories %}
+              <li class="list-group-item"><a href="/categories/{{ category | first }}/">{{ category | first }} <span class="badge">{{ category | last | size }}</span></a></li>
+            {% endfor %}
+					</ul>
+				</div>
+				<div class="panel panel-success">
+                    <div class="panel-heading"><a href="http://www.kerbores.com/apis">API链接</a></div>
+					<ul class="list-group" style="text-align: left">
+						<li class="list-group-item"><a href="http://www.kerbores.com/apis/nutz/main.html" target="_blank" >NUTZ</a></li>
+                        <li class="list-group-item"><a href="http://www.kerbores.com/apis/alert" target="_blank" >弹窗组件</a></li>
+                        <li class="list-group-item"><a href="http://www.kerbores.com/apis/echarts" target="_blank" >Echarts</a></li>
+                        <li class="list-group-item"><a href="http://www.kerbores.com/apis/mongoDao" target="_blank" >Mongo ORM</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+	<hr>
+
+    {% include footer.html %}
+
+  </body>
+  <script type='text/javascript'>
+  $(function(){
+    if (window.chrome) {
+			$('.banner li').css('background-size', '100% 100%');
+		}
+		$('.banner').unslider({
+			fluid : true,
+			dots : true
+		});
+    $(".to-top").hide();
+		$(window).scroll(function() {
+			if ($(window).scrollTop() > 100) {
+				$(".to-top").fadeIn(1500);
+			} else {
+				$(".to-top").fadeOut(1500);
+			}
+		});
+		$(".to-top").click(function() {
+			$('body,html').animate({
+				scrollTop : 0
+			}, 1000);
+			return false;
+		});
+    $('#calendar').datetimepicker({
+			inline : true,
+			lang : 'en',
+			timepicker : false,
+			onSelectDate : function(v1) {
+				console.log(v1.dateFormat('Y-m-d'));
+				location.href = getRootPath() + '/article/listByDate?date='+v1.dateFormat('Y-m-d');
+			}
+		});
+  })
+  </script>
+</html>

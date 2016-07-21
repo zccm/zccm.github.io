@@ -1,0 +1,52 @@
+<div class="banner has-dots" style="overflow: hidden; width: 100%; height: 415px;">
+		<ul style="width: 400%; position: relative; left: -200%; height: 415px;">
+			<li style="width: 25%; background-image: url(/images/slider/sunset.jpg); background-size: 100% 100%;">
+				<div class="inner">
+					<h1>K-Blog</h1>
+					<p>不需要刻意的张扬,沉默是无声的力量!</p>
+				</div>
+			</li>
+			<li style="width: 25%; background-image: url(/images/slider/subway.jpg); background-size: 100% 100%;">
+				<div class="inner">
+					<h1>匆匆</h1>
+					<p>没落的是月,而流浪的是心</p>
+				</div>
+			</li>
+			<li style="width: 25%; background-image: url(/images/slider/boat.jpg); background-size: 100% 100%;">
+				<div class="inner">
+					<h1>&nbsp;</h1>
+					<p>那些花开的日子啊,留在回望的尽头吗</p>
+				</div>
+			</li>
+		</ul>
+	</div>
+	<nav class="navbar navbar-inverse" role="navigation">
+			<div class="container-fluid">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+						<span class="sr-only">下拉导航</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span>
+					</button>
+					<a class="navbar-brand" href="#">Kerbores</a>
+				</div>
+				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+					<ul class="nav navbar-nav">
+						<li id='article'><a href="$!{base}/"> 首 页 </a></li>
+						<li id='tag'><a href="$!{base}/tag"> 标 签 </a></li>
+						<li id='note'><a href="$!{base}/note"> 留 言 </a></li>
+						<li id='photo'><a href="$!{base}/photo"> 相 册 </a></li>
+						<li id='admin'><a href="$!{base}/admin" target="_blank" > 管 理 </a></li>
+					</ul>
+					<ul class="nav navbar-nav navbar-right">
+						<li>
+							<form class="navbar-form navbar-left" role="search" method="post" action="$!{base}/article/search">
+								<div class="input-group">
+									<input type="text" class="form-control" placeholder="请输入关键字进行检索" name="key"> <span class="input-group-btn">
+										<button class="btn btn-default" type="submit" >Go!</button>
+									</span>
+								</div>
+							</form>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</nav>
