@@ -38,13 +38,13 @@ layout: default
   <nav>
   <ul class="pagination">
     <li {% if paginator.previous_page %} {% else %} class="disabled" {% endif %}>
-      <a href="/page{{ paginator.previous_page }}" aria-label="Previous">
+      <a {% if paginator.previous_page %} href="/page{{ paginator.previous_page }}" {% else %} href="#" {% endif %} aria-label="Previous">
         <span aria-hidden="true">&laquo;</span>
       </a>
     </li>
     <li><a href="/page{{ paginator.page }}">{{ paginator.page }}</a></li>
     <li {% if paginator.next_page %}  {% else %} class="disabled" {% endif %}>
-      <a href="/page{{ paginator.next_page }}" aria-label="Next">
+      <a {% if paginator.next_page %} href="/page{{ paginator.next_page }} {% else %} href="#" {% endif %}" aria-label="Next">
         <span aria-hidden="true">&raquo;</span>
       </a>
     </li>
