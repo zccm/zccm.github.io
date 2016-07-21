@@ -34,25 +34,23 @@ layout: default
       <hr />
     {% endfor %}
   </ul>
+  <div class="pager-bar">
   <nav>
   <ul class="pagination">
     <li>
-      <a href="#" aria-label="Previous">
+      <a href="/page{{ paginator.previous_page }}" aria-label="Previous">
         <span aria-hidden="true">&laquo;</span>
       </a>
     </li>
-    <li><a href="#">1</a></li>
-    <li><a href="#">2</a></li>
-    <li><a href="#">3</a></li>
-    <li><a href="#">4</a></li>
-    <li><a href="#">5</a></li>
+    <li><a href="/page{{ paginator.page }}">{{ paginator.page }}</a></li>
     <li>
-      <a href="#" aria-label="Next">
+      <a href="/page{{ paginator.next_page }}" aria-label="Next">
         <span aria-hidden="true">&raquo;</span>
       </a>
     </li>
   </ul>
 </nav>
+</div>
   <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></p>
 
 </div>
