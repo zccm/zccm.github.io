@@ -6,6 +6,7 @@
 # 'jekyll serve'. If you change this file, please restart the server process.
 
 # Site settings
+paginate: 5
 title: Kerbores 的个人博客
 email:  kerbores@zhcs.club
 description: > # this means to ignore newlines until "baseurl:"
