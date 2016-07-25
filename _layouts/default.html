@@ -26,7 +26,7 @@
 					<div class="panel-heading">文章分类</div>
 					<ul class="list-group" style="text-align: left">
             {% for category in site.categories %}
-              <li class="list-group-item"><a href="/categories/{{ category | first }}/">{{ category | first }} <span class="badge">{{ category | last | size }}</span></a></li>
+              <li class="list-group-item"><a href="{{ site.baseurl}}/category/{{ category.first }}.html">{{ category | first }} <span class="badge">{{ category | last | size }}</span></a></li>
             {% endfor %}
 					</ul>
 				</div>
