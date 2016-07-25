@@ -7,6 +7,7 @@
 
 # Site settings
 paginate: 5
+gems: [jekyll-paginate]
 title: Kerbores 的个人博客
 email:  kerbores@zhcs.club
 description: > # this means to ignore newlines until "baseurl:"
