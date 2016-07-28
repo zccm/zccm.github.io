@@ -1,0 +1,48 @@
+---
+layout: default
+---
+
+<script src="{{ "/js/Jquery.Query.js" | prepend: site.baseurl }}"></script>
+<script type='text/javascript'>
+    $(function(){
+      var dataStr = '{ {% for cat in site.categories %}{% if cat[0] != site.categories.first[0] %},{% endif %}"{{ cat[0] }}":[{% for post in cat[1] %}{% if post != cat[1].first %},{% endif %}{"categories":[{% for c in post.categories %} {% if c != post.categories.first%} , {% endif%} "{{c}}"  {% endfor %}],"url":"{{post.url}}","summary":"{{post.summary}}", "title":"{{post.title}}","day":"{{ post.date | date: "%-d" }}","year":"{{ post.date | date: "%Y" }}","month":"{{ post.date | date: "%b" }}","date":"{{ post.date | date: "%b %-d, %Y" }}"}{% endfor %}]{% endfor %} }',
+      data = JSON.parse(dataStr),
+      curTag = $.query.get("cat"),
+      archieves = data[curTag];
+      console.log(archieves);
+      var panel = $('.post-list');
+      $(archieves).each(function(index,archieve){
+        console.log(panel);
+        console.log(archieve);
+        panel.append('<div class="row articles">'+
+          '<div class="col-sm-2 post-time">'+
+            '<span class="pull-right">'+
+              '<h5>'+archieve.day+'</h5>'+
+              '<h6>'+
+                archieve.year+'<br>'+archieve.month+
+              '</h6>'+
+            '</span>'+
+          '</div>'+
+          '<div class="col-sm-10 article">'+
+            '<div class="article-title">'+
+              '<a href="'+archieve.url+'">'+archieve.title+'</a>'+
+            '</div>'+
+            '<div class="article-summary">'+ archieve.summary+'</div>'+
+            '<div class="article-operation">发布时间: '+archieve.date+' | 分类:'+(archieve.categories.join(' '))+'</div>'+
+          '</div>'+
+        '</div>'+
+        '<hr />');
+      })
+    })
+</script>
+<div class="home">
+
+  <h1 class="page-heading">分类文章列表</h1>
+
+  <ul class="post-list">
+
+  </ul>
+  <div class="pager-bar">
+    subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a>
+  </div>
+</div>
